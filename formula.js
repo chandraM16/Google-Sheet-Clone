@@ -21,7 +21,7 @@ for (let i = 0; i < row; i++) {
         return;
       }
 
-      // update the value in sheetDB
+      // update the changed value in sheetDB
       cellProp.value = enteredData;
 
       // if data modifies remove Parent - Child relation , formula empty update children
@@ -34,7 +34,7 @@ for (let i = 0; i < row; i++) {
 
 let formulaBar = document.querySelector(".formula-bar");
 
-formulaBar.addEventListener("keydown", (e) => {
+formulaBar.addEventListener("keydown", async (e) => {
   // get formula
   let formulaBarInput = formulaBar.value;
 
@@ -64,7 +64,7 @@ formulaBar.addEventListener("keydown", (e) => {
       );
       while (response === true) {
         // keep on tracking color until user is satisfied
-        isGraphCyclicTracePath(graphComponentMatrix, cycleResponse);
+        await isGraphCyclicTracePath(graphComponentMatrix, cycleResponse);
         response = confirm(
           "Your Formula is Cyclic, Do you want to trace your path?"
         );
@@ -139,7 +139,7 @@ function removeChildFromParent(formulaText) {
       let [parentCell, parentCellprop] = getCellAndCellProp(formulaTextArr[i]);
       let idx = parentCellprop.childcells.indexOf(childAddress);
       parentCellprop.childcells.splice(idx, 1);
-      console.log(`${childAddress} is removed from ${formulaTextArr[i]}`);
+      // console.log(`${childAddress} is removed from ${formulaTextArr[i]}`);
     }
   }
 }
@@ -174,9 +174,9 @@ function evaluateFormula(formulaText) {
   }
 
   // get new updated formula for evaluation
-  let decodedformula = formulaTextArr.join(" ");
+  let decodedFormula = formulaTextArr.join(" ");
 
-  return eval(decodedformula);
+  return eval(decodedFormula);
 }
 
 // it will update the cell and cellProp with formula and its evaluated value
@@ -197,7 +197,10 @@ function addChildToParent(formulaText) {
     if (asciiValue >= 65 && asciiValue <= 90) {
       let [cell, parentCellprop] = getCellAndCellProp(formulaTextArr[i]);
       parentCellprop.childcells.push(childAddress);
-      console.log(`${childAddress} is added to its ${formulaText[i]} parent`);
+      // console.log(
+      //   `${childAddress} is added to its ${formulaTextArr[i]} parent`
+      // );
+      // console.log(`${formulaTextArr[i]} -> ${parentCellprop.childcells}`);
     }
   }
 }

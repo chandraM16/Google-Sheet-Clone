@@ -4,7 +4,7 @@ let graphComponentMatrix = [];
 for (let i = 0; i < row; i++) {
   let Row = [];
   for (let j = 0; j < col; j++) {
-    // Why array -> More than one child relation(dependancy)
+    // Why array -> More than one child relation(dependance)
     let arr = [];
     Row.push(arr);
   }
