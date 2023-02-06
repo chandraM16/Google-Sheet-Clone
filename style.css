@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* page cont */
+.page-action-cont {
+    /* border: 3px solid black; */
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: #10ac84;
+    padding-left: 1.3rem;
+
+}
+
+.page-action {
+    margin: 0.5rem;
+    color: white;
+    /* font-family: ; */
+    font-size: 1.2rem;
+}
+
+
+/* cellProp cont */
+.cellporps-action-cont {
+    /* border: 3px solid red; */
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1.3rem;
+    background-color: #c8d6e5;
+}
+
+.font-family-prop {
+    padding: 0.2rem;
+}
+
+.font-size-prop {
+    padding: 0.2rem;
+}
+
+.cellporps-action-cont>* {
+    /* display: inline-block; */
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.cellporps-action-cont>select {
+    height: 1.5rem;
+    background-color: #8395a7;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.color-prop-cont {
+    /* border: 3px solid black; */
+    position: relative;
+    /* font-style: italic; */
+    /* text-decoration: none; */
+}
+
+.font-color-prop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    /* to hide the element */
+
+}
+
+.cell-color-prop {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+
+}
+
+/* formula cont */
+.formula-action-cont {
+    background-color: #c8d6e5;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1.3rem;
+}
+
+.formula-action-cont>input {
+    margin: 0 1.2rem;
+    height: 1.7rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+}
+
+.address-bar {
+    width: 8rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.formula-bar {
+    width: calc(100vw - 8rem);
+}
+
+
+
+/* sheet cont */
+.sheet-action-cont {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: #c8d6e5;
+    padding-left: 1.3rem;
+
+}
+
+.sheet-folder-cont {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sheet-action-cont>span {
+    background-color: #8395a7;
+}
+
+.sheet-action-cont>* {
+    margin: 0.5rem;
+}
+
+.sheet-folder {
+    margin: 0.5rem;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+
+
+/* grid cont */
+.grid-cont {
+    height: calc(100vh - 3rem - 3rem - 3rem - 3rem);
+    display: flex;
+    overflow: scroll;
+    background-color: #dfe4ea;
+    /* border: 3px solid green; */
+    position: relative;
+
+}
+
+.address-col-cont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.top-left-dummy {
+    height: 2rem;
+    width: 2rem;
+    background-color: #8395a7;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+.address-no-cont {
+    background-color: #f1f2f6;
+    /* border: 3px solid red; */
+    /* position: sticky;
+    top: 2rem;
+    left: 0;
+    z-index: 1; */
+    
+}
+
+.cells-cont {
+    /* border: 3px solid #c8179f; */
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 2rem;
+
+}
+
+.address-row-cont {
+    /* border: 3px solid rgb(14, 144, 231); */
+    background-color: #f1f2f6;
+    height: 2rem;
+    display: flex;
+    position: sticky;
+    top: 0;
+
+
+}
+
+.address-col {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ced6e0;
+}
+
+.address-row {
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ced6e0;
+}
+
+.rowCont {
+    display: flex;
+}
+
+.cell {
+    width: 6rem;
+    height: 2rem;
+    border: 1px solid #ced6e0;
+    outline: none;
+    overflow: auto;
+    background-color: #dfe4ea;
+
+}
