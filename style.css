@@ -125,7 +125,7 @@ body {
     align-items: center;
     background-color: #c8d6e5;
     padding-left: 1.3rem;
-
+    overflow: auto;
 }
 
 .sheet-folder-cont {
@@ -141,6 +141,7 @@ body {
 
 .sheet-action-cont>* {
     margin: 0.5rem;
+    cursor: pointer;
 }
 
 .sheet-folder {

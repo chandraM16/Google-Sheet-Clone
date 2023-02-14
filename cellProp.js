@@ -1,29 +1,35 @@
 //storage
-/*Here we are going to use two way binding for store and update the cell. We are going to create a matrix with 100 row and 26 col for our cells ("sheetBD") . This sheetDB is going to store all  property of cell . When user changes any prop of cell then we will update that cell in sheetDb as well as in UI*/
-let sheetDB = [];
-for (let i = 0; i < row; i++) {
-  //100
-  let sheetRow = [];
-  for (let j = 0; j < col; j++) {
-    // 26
-    //  2600
-    let cellProp = {
-      boldval: false,
-      italicval: false,
-      underlineval: false,
-      alignmentval: "left",
-      fontFamilyval: "monospace",
-      fontSizeval: 14,
-      fontColorval: "#000000",
-      cellColorval: "#dfe4ea", //just for indication propose
-      value: "", // to store data of cell
-      formulaval: "", // store thr formula of that
-      childcells: [],
-    };
-    sheetRow.push(cellProp);
-  }
-  sheetDB.push(sheetRow);
+let collectedSheetDB = [];
+// /*Here we are going to use two way binding for store and update the cell. We are going to create a matrix with 100 row and 26 col for our cells ("sheetBD") . This sheetDB is going to store all  property of cell . When user changes any prop of cell then we will update that cell in sheetDb as well as in UI*/
+// let sheetDB = [];
+
+{
+  const sheetAddBtn = document.querySelector(".sheet-add-btn");
+  sheetAddBtn.click();
+  console.log(90)
+  handleSheetProp();
 }
+// for (let i = 0; i < row; i++) {
+//
+//   let sheetRow = [];
+//   for (let j = 0; j < col; j++) {
+//     let cellProp = {
+//       boldval: false,
+//       italicval: false,
+//       underlineval: false,
+//       alignmentval: "left",
+//       fontFamilyval: "monospace",
+//       fontSizeval: 14,
+//       fontColorval: "#000000",
+//       cellColorval: "#dfe4ea", //just for indication propose
+//       value: "", // to store data of cell
+//       formulaval: "", // store thr formula of that
+//       childcells: [],
+//     };
+//     sheetRow.push(cellProp);
+//   }
+//   sheetDB.push(sheetRow);
+// }
 
 //selectors for cell properties
 let bold = document.querySelector(".bold");
@@ -95,8 +101,7 @@ underline.addEventListener("click", (e) => {
   underline.style.backgroundColor = cellProp.underlineval
     ? activePropColor
     : inActivePropColor;
-    console.log(`UnderLine Task is done for ${addressBarVal}`);
-
+  console.log(`UnderLine Task is done for ${addressBarVal}`);
 });
 
 //font size
@@ -111,7 +116,6 @@ fontSize.addEventListener("change", (e) => {
   cell.style.fontSize = cellProp.fontSizeval + "px";
   fontSize.value = cellProp.fontSizeval;
   console.log(`Font Size Task is done for ${addressBarVal}`);
-
 });
 
 //font family
@@ -126,7 +130,6 @@ fontFamily.addEventListener("change", (e) => {
   cell.style.fontFamily = cellProp.fontFamilyval;
   fontFamily.value = cellProp.fontFamilyval;
   console.log(`Font Family Task is done for ${addressBarVal}`);
- 
 });
 
 //font color
@@ -139,11 +142,10 @@ fontColor.addEventListener("change", (e) => {
 
   //storing the color direct in sheetDB
   cellProp.fontColorval = fontColor.value;
-  
+
   cell.style.color = cellProp.fontColorval;
   fontColor.value = cellProp.fontColorval;
   console.log(`Font Color Task is done for ${addressBarVal}`);
-
 });
 
 //cell color
@@ -158,14 +160,12 @@ cellColor.addEventListener("change", (e) => {
   cell.style.backgroundColor = cellProp.cellColorval;
   cellColor.value = cellProp.cellColorval;
   console.log(`Cell Color Task is done for ${addressBarVal}`);
-
 });
 
 //alignment
 // we have attach alignment class on three div left, center and right we are using the for Each for add EventListener on each of them
 alignment.forEach((alignEle) => {
   alignEle.addEventListener("click", (e) => {
-
     // get address of cell
     let addressBarVal = addressBar.value; // return string
     if (addressBarVal == "") {
@@ -175,15 +175,15 @@ alignment.forEach((alignEle) => {
     // get cell and cellProp
     let [cell, cellProp] = getCellAndCellProp(addressBarVal);
 
-    // the 1st value in classList of each div is alignment value  
+    // the 1st value in classList of each div is alignment value
     let alignValue = e.target.classList[0];
     console.log(alignValue);
 
     // sheetDB update
-    cellProp.alignmentval = alignValue; 
+    cellProp.alignmentval = alignValue;
 
     // cell update
-    cell.style.textAlign = cellProp.alignmentval; 
+    cell.style.textAlign = cellProp.alignmentval;
 
     // change / Toggle BGcolor of that divs
     switch (alignValue) {
@@ -209,7 +209,7 @@ alignment.forEach((alignEle) => {
   });
 });
 
-// we have add all prop on cell and update that prop in SheetDB, Now we area going to update cell who are have the prop . Means once cell get its prop we move to next cell and when we come back to prev cell then all prop its got assign should be visible again 
+// we have add all prop on cell and update that prop in SheetDB, Now we area going to update cell who are have the prop . Means once cell get its prop we move to next cell and when we come back to prev cell then all prop its got assign should be visible again
 
 let allCell = document.querySelectorAll(".cell");
 for (let i = 0; i < allCell.length; i++) {

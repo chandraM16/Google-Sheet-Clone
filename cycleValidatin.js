@@ -1,15 +1,17 @@
 // storage - 2D array
+let collectedGraphComponent = [];
 let graphComponentMatrix = [];
 
-for (let i = 0; i < row; i++) {
-  let Row = [];
-  for (let j = 0; j < col; j++) {
-    // Why array -> More than one child relation(dependance)
-    let arr = [];
-    Row.push(arr);
-  }
-  graphComponentMatrix.push(Row);
-}
+
+// for (let i = 0; i < row; i++) {
+//   let Row = [];
+//   for (let j = 0; j < col; j++) {
+//     // Why array -> More than one child relation(dependance)
+//     let arr = [];
+//     Row.push(arr);
+//   }
+//   graphComponentMatrix.push(Row);
+// }
 
 // true - > cyclic
 // false -> not cyclic
